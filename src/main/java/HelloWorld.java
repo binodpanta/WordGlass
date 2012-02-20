@@ -9,10 +9,12 @@ public class HelloWorld extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		resp.setContentType("text/html");
+		
 		resp.getWriter().print(
-				"Welcome to WordGlass, a cool and useful Words app!\n");
+				"<span>Welcome to WordGlass, a cool and useful Words app!</span>");
 
-		StringBuilder sb = new StringBuilder("Here are the developers...");
+		StringBuilder sb = new StringBuilder("<p>Here are the developers...</p>");
 		for (String s : new WordProvider().getWordlist()) {
 			sb.append(s + "<br/>");
 		}
