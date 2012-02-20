@@ -10,13 +10,14 @@ MongoDB setup
  Run as mongod --dbpath=/some/local/data/dir
  From a new terminal, test that mongo connect to the database
 
-Application setup
+Application setup (http://devcenter.heroku.com/articles/sharing#accessing_an_app_as_a_collaborator )
   Create heroku account using email for collaboration
   cd /home/username/work
   mkdir WordGlass
   cd WordGlass/
-  heroku login (enter your login from heroku account)
-  git pull heroku
+  heroku login (If needed, enter your login from heroku account)
+  git clone -o heroku git@heroku.com:wordglass.git
+  # Or do this, if later you want to simply pull others changes, [git pull heroku master]
   mvn package
   export PORT=5000
   export MONGOHQ_URL=mongodb://:@localhost:27017/test (for mongodb database called 'test')
