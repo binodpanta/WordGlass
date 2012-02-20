@@ -6,19 +6,28 @@ import org.eclipse.jetty.servlet.*;
 
 public class HelloWorld extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        resp.getWriter().print("Hello from Java!\n");
-    }
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		resp.getWriter().print(
+				"Welcome to WordGlass, a cool and useful Words app!\n");
 
-    public static void main(String[] args) throws Exception{
-        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
-        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/");
-        server.setHandler(context);
-        context.addServlet(new ServletHolder(new HelloWorld()),"/*");
-        server.start();
-        server.join();   
-    }
+		StringBuilder sb = new StringBuilder("Here are the developers...");
+		for (String s : new WordProvider().getWordlist()) {
+			sb.append(s + "<br/>");
+		}
+		resp.getWriter().print(sb.toString());
+
+	}
+
+	public static void main(String[] args) throws Exception {
+		Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+		ServletContextHandler context = new ServletContextHandler(
+				ServletContextHandler.SESSIONS);
+		context.setContextPath("/");
+		server.setHandler(context);
+		context.addServlet(new ServletHolder(new HelloWorld()), "/*");
+		server.start();
+		server.join();
+	}
 }
