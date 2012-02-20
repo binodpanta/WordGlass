@@ -1,6 +1,5 @@
 A Simple Words statistics application
 
-
 Workflow notes:
 
 Setup Java (1.6 or higher, openjdk if Debian/Ubuntu)
@@ -33,3 +32,6 @@ Deploying changes  (No staging right now, directly to production!)
   git commit -m "notes"
   git push heroku master
   Ensure application is still running at http://wordglass.herokuapp.com
+
+Collaborators: Binod Pant, Utish Rajkarnikar, Sandesh Aryal
+
