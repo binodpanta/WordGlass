@@ -4,20 +4,29 @@ import javax.servlet.http.*;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.*;
 
+import com.wordglass.db.DBAccess;
+
 public class HelloWorld extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		resp.setContentType("text/html");
-		
-		resp.getWriter().print(
-				"<span>Welcome to WordGlass, a cool and useful Words app!</span>");
 
-		StringBuilder sb = new StringBuilder("<p>Here are the developers...</p>");
+		resp.getWriter()
+				.print("<span>Welcome to WordGlass, a cool and useful Words app!</span>");
+
+		StringBuilder sb = new StringBuilder(
+				"<p>Here are the developers...</p>");
 		for (String s : new WordProvider().getWordlist()) {
 			sb.append(s + "<br/>");
 		}
+
+		sb.append("<hr/><p>Here are the Tables available...</p>");
+		for (String c : DBAccess.getInstance().collections()) {
+			sb.append(c + "<br/>");
+		}
+
 		resp.getWriter().print(sb.toString());
 
 	}
