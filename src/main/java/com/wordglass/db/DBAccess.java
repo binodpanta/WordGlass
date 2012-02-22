@@ -12,6 +12,10 @@ public class DBAccess {
 	private static DBAccess dbaccess;
 	private DB db;
 
+	public DB mongodb() {
+		return db;
+	}
+
 	private DBAccess() throws MongoException, UnknownHostException {
 		// URI mongoURI = new URI(System.getenv("MONGOHQ_URL"));
 

@@ -5,6 +5,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.*;
 
 import com.wordglass.db.DBAccess;
+import com.wordglass.dbmodels.WordsProvider;
 
 public class HelloWorld extends HttpServlet {
 
@@ -18,7 +19,7 @@ public class HelloWorld extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(
 				"<p>Here are the developers...</p>");
-		for (String s : new WordProvider().getWordlist()) {
+		for (String s : new WordsProvider().getWordlist()) {
 			sb.append(s + "<br/>");
 		}
 
