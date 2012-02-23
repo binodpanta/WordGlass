@@ -48,5 +48,8 @@ Deploying changes  (No staging right now, directly to production!)
 Connecting to production database:
   mongo staff.mongohq.com:10042/app2960528 -u heroku -p 7ffb57cf944d4cac0b941919bb6de561
 
+Getting a data dump from the production database
+  mongodump -h staff.mongohq.com:10042 -d app2960528 -u heroku -p 7ffb57cf944d4cac0b941919bb6de561
+
 Collaborators: Binod Pant, Utish Rajkarnikar, Sandesh Aryal
 
