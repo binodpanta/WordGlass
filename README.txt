@@ -27,7 +27,7 @@ Running application
   export MONGOHQ_URL=mongodb://:@localhost:27017/test (for mongodb database called 'test')
 
 Testing app locally
-  java -cp target/classes:"target/dependency/*" HelloWorld
+  java -cp wordglass-webapp/target/classes:"wordglass-webapp/target/dependency/*" MainPageServlet
   browser point to http://localhost:5000  
 
 Pulling in changes made by others
