@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/* HelloWorld
+web: java -cp wordglass-webapp/target/classes/:wordglass-webapp/target/dependency/* MainPageServlet

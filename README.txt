@@ -29,6 +29,7 @@ Running application
 Testing app locally
   java -cp wordglass-webapp/target/classes:"wordglass-webapp/target/dependency/*" MainPageServlet
   browser point to http://localhost:5000  
+  Remember to test using foreman start before checkin in case the Procfile is broken
 
 Pulling in changes made by others
   git pull heroku master
