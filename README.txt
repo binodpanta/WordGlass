@@ -24,7 +24,7 @@ First time Application setup (http://devcenter.heroku.com/articles/sharing#acces
 Running application
   mvn package
   export PORT=5000
-  export MONGOHQ_URL=mongodb://:@localhost:27017/test (for mongodb database called 'test')
+  export MONGOHQ_URL=mongodb://:@localhost:27017/words (for mongodb our local database is called 'words')
 
 Testing app locally
   java -cp wordglass-webapp/target/classes:"wordglass-webapp/target/dependency/*" MainPageServlet
@@ -50,6 +50,9 @@ Connecting to production database:
 
 Getting a data dump from the production database
   mongodump -h staff.mongohq.com:10042 -d app2960528 -u heroku -p 7ffb57cf944d4cac0b941919bb6de561
+
+Copying production database to local (from mongo console)
+  db.copyDatabase('app2960528','words','staff.mongohq.com:10042','heroku','7ffb57cf944d4cac0b941919bb6de561')
 
 Collaborators: Binod Pant, Utish Rajkarnikar, Sandesh Aryal
 
